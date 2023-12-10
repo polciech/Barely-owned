@@ -36,7 +36,8 @@ Kupujący przegląda ubrania, używając do tego filtrów, zapisuje w swoim kata
 
 
 3. **PERSONA**
-![Alt text](image.png)
+![Alt text](persona_1.png)
+
 
 4. **HISTORYJKI** 
 
