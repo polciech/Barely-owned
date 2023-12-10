@@ -2,13 +2,13 @@
 
  **Aplikacja mobilna do kupna i sprzedaży używanych ubrań**
 
-1. **Opis działania aplikacji**
+## 1. **Opis działania aplikacji**
 
 Aplikacja działa jako platforma do wymiany, kupna i sprzedaży używanej odzieży i obuwia. Osoba sprzedająca wystawia przez swoje konto sprzedawane dobra, ustala ich cenę i kategorie, do których należą. Może, także dodać opis.
 
 Kupujący przegląda ubrania, używając do tego filtrów, zapisuje w swoim katalogu , te które mu się podobają i kupuję je od sprzedającego. Może, także do niego napisać z zapytaniem o produkt, lub z propozycją obniżenia ceny.
 
-2. **Funkcje aplikacji**
+## 2. **Funkcje aplikacji**
   - Profil użytkownika:
     - Rejestracja
     - Logowanie
@@ -35,12 +35,12 @@ Kupujący przegląda ubrania, używając do tego filtrów, zapisuje w swoim kata
   - Regulamin szczegółowy
 
 
-3. **PERSONA**
+## 3. **PERSONA**
 ![Alt text](persona_1.png)
+![Alt text](persona_2.png)
 
 
-
-4. **HISTORYJKI** 
+## 4. **HISTORYJKI** 
 
 
 ### Podstawowa historyjka użytkownika BarelyOwned
