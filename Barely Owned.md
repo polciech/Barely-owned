@@ -35,10 +35,10 @@ Kupujący przegląda ubrania, używając do tego filtrów, zapisuje w swoim kata
   - Regulamin szczegółowy
 
 
-PERSONA
+3. **PERSONA**
 ![Alt text](image.png)
 
-HISTORYJKI 
+4. **HISTORYJKI** 
 
 
 Podstawowa historyjka użytkownika BarelyOwned
