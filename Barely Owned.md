@@ -83,13 +83,13 @@ Kupujący przegląda ubrania, używając do tego filtrów, zapisuje w swoim kata
 
 ### Historyjka zapisywania się do newslettera
   1. Użytkownik otwiera aplikację BarelyOwned 
-  2. Po przewinięciu za pomocą dotyku strony na sam dół, użytkownik może wybrać zapisać się do newslettera
-  3. Użytkownik  jest przenoszony do okna z newsletterem i może podać swój adres email i interesujące go produkty, o których chcę dostawać powiadomienia.
-  4. Użytkownik po zatwierdzeniu dostaje potwierdzenia na email o zapisaniu się do newslettera. 
+  2. Użytkownik przechodzi na kartę produktu lub na stronę sprzedawcy
+  3. Użytkownik może zaobserwować dany produkt lub sprzedawcę.
+  4. Użytkownik dostaje powiadomienia odnośnie nowych produktów lub stanu obecnego produktu. 
 
 ### Historyjka czytania regulaminu strony
   1. Użytkownik otwiera aplikację BarelyOwned 
-  2. Po przewinięciu za pomocą dotyku strony na sam dół, użytkownik może wybrać by przeczytać regulamin
+  2. Po przejściu do zakładki profilu, użytkownik może wybrać by przeczytać regulamin
   3. Użytkownik jest przenoszony do okna z regulaminem
 
 ### Historyjka dodawania opinii o użytkowniku/produkcie
