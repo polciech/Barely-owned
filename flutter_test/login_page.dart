@@ -1,6 +1,7 @@
 // login_page.dart
 import 'package:flutter/material.dart';
 import 'home_page.dart';
+import 'signup_page.dart';
 
 void main() {
   runApp(LoginPage());
@@ -89,7 +90,11 @@ class _LoginPageState extends State<LoginPage> {
             ),
             ElevatedButton(
               onPressed: () {
-                // Tutaj umieść logikę rejestracji
+                // Nawiązanie do pliku z rejestracją (signup_page.dart)
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SignupPage()),
+                );
               },
               child: Text('Zarejestruj się'),
             ),

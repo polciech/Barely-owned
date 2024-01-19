@@ -1,5 +1,7 @@
 // home_page.dart
 import 'package:flutter/material.dart';
+import 'login_page.dart';
+import 'search_page.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -7,6 +9,16 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Wyszukaj'),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.search),
+            onPressed: () {
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(builder: (context) => SearchPage()),
+              );
+            },
+          ),
+        ],
       ),
       body: ListView(
         children: [
@@ -25,28 +37,34 @@ class HomePage extends StatelessWidget {
                 SizedBox(height: 16.0),
                 // Przykładowe zdjęcia
                 ImageCaptionWidget(
-                  imageUrl: 'https://via.placeholder.com/150',
+                  imageUrl:
+                      'https://patrioty.pl/17651-medium_default/koszulka-orzel-styl.jpg',
                   caption: 'Koszulka - 38,99',
                 ),
                 ImageCaptionWidget(
-                  imageUrl: 'https://via.placeholder.com/150',
+                  imageUrl:
+                      'https://th.bing.com/th/id/OIP.VqN6aKK2mipVDRAAyHlHcQAAAA?w=136&h=147&c=7&r=0&o=5&dpr=1.3&pid=1.7',
                   caption: 'Spodnie - 40,54',
                 ),
                 ImageCaptionWidget(
-                  imageUrl: 'https://via.placeholder.com/150',
+                  imageUrl:
+                      'https://th.bing.com/th/id/OIP.c5K2w9TmEwTHSPyb6d_R5AHaIZ?w=89&h=90&c=1&rs=1&qlt=90&r=0&dpr=1.3&pid=InlineBlock',
                   caption: 'Koszulka - 23,89',
                 ),
                 ImageCaptionWidget(
-                  imageUrl: 'https://via.placeholder.com/150',
+                  imageUrl:
+                      'https://th.bing.com/th/id/OIP.fG-wjoGsWLw6LvaFjo0LjAAAAA?rs=1&pid=ImgDetMain',
                   caption: 'Bluza - 120,99',
                 ),
                 ImageCaptionWidget(
-                  imageUrl: 'https://via.placeholder.com/150',
+                  imageUrl:
+                      'https://th.bing.com/th/id/OIP.NAQAvA9CyLDN6H53J5Ps9AAAAA?w=130&h=147&c=7&r=0&o=5&dpr=1.3&pid=1.7',
                   caption: 'Spodnie - 10,21',
                 ),
                 ImageCaptionWidget(
-                  imageUrl: 'https://via.placeholder.com/150',
-                  caption: 'Majtki - 209,88',
+                  imageUrl:
+                      'https://th.bing.com/th/id/OIP.3VkKAxswfRIp9HyxitoJfgAAAA?w=148&h=138&c=7&r=0&o=5&dpr=1.3&pid=1.7',
+                  caption: 'kurtka - 209,88',
                 ),
               ],
             ),
@@ -87,6 +105,8 @@ class ImageCaptionWidget extends StatelessWidget {
   }
 }
 
+// Importuj stronę logowania
+
 class CustomBottomNavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -115,6 +135,14 @@ class CustomBottomNavigationBar extends StatelessWidget {
       ],
       selectedItemColor: Colors.blue,
       unselectedItemColor: Colors.grey,
+      onTap: (index) {
+        // Dodaj kod obsługujący przekierowanie na stronę logowania
+        if (index == 4) {
+          Navigator.of(context).pushReplacement(
+            MaterialPageRoute(builder: (context) => LoginPage()),
+          );
+        }
+      },
     );
   }
 }
