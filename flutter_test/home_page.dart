@@ -158,23 +158,73 @@ class CustomBottomNavigationBar extends StatelessWidget {
     return BottomNavigationBar(
       items: <BottomNavigationBarItem>[
         BottomNavigationBarItem(
-          icon: Icon(Icons.home),
+          icon: Container(
+            decoration: BoxDecoration(
+              color: Colors.blue, // Set the background color here
+              shape: BoxShape.circle, // Optional: You can set the shape
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0), // Optional: Adjust padding
+              child: Icon(Icons.home,
+                  color: Colors.white), // Set the icon color here
+            ),
+          ),
           label: 'Strona Główna',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.favorite),
+          icon: Container(
+            decoration: BoxDecoration(
+              color: Colors.white, // Set the background color here
+              shape: BoxShape.circle, // Optional: You can set the shape
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0), // Optional: Adjust padding
+              child: Icon(Icons.favorite,
+                  color: Colors.grey), // Set the icon color here
+            ),
+          ),
           label: 'Ulubione',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.add),
+          icon: Container(
+            decoration: BoxDecoration(
+              color: Colors.white, // Set the background color here
+              shape: BoxShape.circle, // Optional: You can set the shape
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0), // Optional: Adjust padding
+              child: Icon(Icons.add,
+                  color: Colors.grey), // Set the icon color here
+            ),
+          ),
           label: 'Dodaj',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.mail),
+          icon: Container(
+            decoration: BoxDecoration(
+              color: Colors.white, // Set the background color here
+              shape: BoxShape.circle, // Optional: You can set the shape
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0), // Optional: Adjust padding
+              child: Icon(Icons.mail,
+                  color: Colors.grey), // Set the icon color here
+            ),
+          ),
           label: 'Wiadomości',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.person),
+          icon: Container(
+            decoration: BoxDecoration(
+              color: Colors.white, // Set the background color here
+              shape: BoxShape.circle, // Optional: You can set the shape
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0), // Optional: Adjust padding
+              child: Icon(Icons.person,
+                  color: Colors.grey), // Set the icon color here
+            ),
+          ),
           label: 'Profil',
         ),
       ],
