@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'login_page.dart';
 import 'search_page.dart';
+import 'add_clothing_page.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -20,49 +21,51 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
-      body: ListView(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(height: 16.0),
-                // Przykładowe zdjęcia
-                ImageCaptionWidget(
-                  imageUrl:
-                      'https://patrioty.pl/17651-medium_default/koszulka-orzel-styl.jpg',
-                  caption: 'Koszulka - 38,99',
-                ),
-                ImageCaptionWidget(
-                  imageUrl:
-                      'https://th.bing.com/th/id/OIP.VqN6aKK2mipVDRAAyHlHcQAAAA?w=136&h=147&c=7&r=0&o=5&dpr=1.3&pid=1.7',
-                  caption: 'Spodnie - 40,54',
-                ),
-                ImageCaptionWidget(
-                  imageUrl:
-                      'https://th.bing.com/th/id/OIP.c5K2w9TmEwTHSPyb6d_R5AHaIZ?w=89&h=90&c=1&rs=1&qlt=90&r=0&dpr=1.3&pid=InlineBlock',
-                  caption: 'Koszulka - 23,89',
-                ),
-                ImageCaptionWidget(
-                  imageUrl:
-                      'https://th.bing.com/th/id/OIP.fG-wjoGsWLw6LvaFjo0LjAAAAA?rs=1&pid=ImgDetMain',
-                  caption: 'Bluza - 120,99',
-                ),
-                ImageCaptionWidget(
-                  imageUrl:
-                      'https://th.bing.com/th/id/OIP.NAQAvA9CyLDN6H53J5Ps9AAAAA?w=130&h=147&c=7&r=0&o=5&dpr=1.3&pid=1.7',
-                  caption: 'Spodnie - 10,21',
-                ),
-                ImageCaptionWidget(
-                  imageUrl:
-                      'https://th.bing.com/th/id/OIP.3VkKAxswfRIp9HyxitoJfgAAAA?w=148&h=138&c=7&r=0&o=5&dpr=1.3&pid=1.7',
-                  caption: 'kurtka - 209,88',
-                ),
-              ],
+      body: Center(
+        child: ListView(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SizedBox(height: 16.0),
+                  // Przykładowe zdjęcia
+                  ImageCaptionWidget(
+                    imageUrl:
+                        'https://patrioty.pl/17651-medium_default/koszulka-orzel-styl.jpg',
+                    caption: 'Koszulka - 38,99',
+                  ),
+                  ImageCaptionWidget(
+                    imageUrl:
+                        'https://th.bing.com/th/id/OIP.VqN6aKK2mipVDRAAyHlHcQAAAA?w=136&h=147&c=7&r=0&o=5&dpr=1.3&pid=1.7',
+                    caption: 'Spodnie - 40,54',
+                  ),
+                  ImageCaptionWidget(
+                    imageUrl:
+                        'https://th.bing.com/th/id/OIP.c5K2w9TmEwTHSPyb6d_R5AHaIZ?w=89&h=90&c=1&rs=1&qlt=90&r=0&dpr=1.3&pid=InlineBlock',
+                    caption: 'Koszulka - 23,89',
+                  ),
+                  ImageCaptionWidget(
+                    imageUrl:
+                        'https://th.bing.com/th/id/OIP.fG-wjoGsWLw6LvaFjo0LjAAAAA?rs=1&pid=ImgDetMain',
+                    caption: 'Bluza - 120,99',
+                  ),
+                  ImageCaptionWidget(
+                    imageUrl:
+                        'https://th.bing.com/th/id/OIP.NAQAvA9CyLDN6H53J5Ps9AAAAA?w=130&h=147&c=7&r=0&o=5&dpr=1.3&pid=1.7',
+                    caption: 'Spodnie - 10,21',
+                  ),
+                  ImageCaptionWidget(
+                    imageUrl:
+                        'https://th.bing.com/th/id/OIP.3VkKAxswfRIp9HyxitoJfgAAAA?w=148&h=138&c=7&r=0&o=5&dpr=1.3&pid=1.7',
+                    caption: 'kurtka - 209,88',
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
       bottomNavigationBar: CustomBottomNavigationBar(),
     );
@@ -135,8 +138,13 @@ class CustomBottomNavigationBar extends StatelessWidget {
             MaterialPageRoute(builder: (context) => LoginPage()),
           );
         }
+        if (index == 2) {
+          // Navigate to the AddClothingPage when "Dodaj" (Add) tab is tapped
+          Navigator.of(context).pushReplacement(
+            MaterialPageRoute(builder: (context) => AddClothingPage()),
+          );
+        }
       },
     );
   }
 }
-
