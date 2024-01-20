@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'login_page.dart';
 import 'search_page.dart';
 import 'add_clothing_page.dart';
+import 'cloth_page.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -81,26 +82,37 @@ class ImageCaptionWidget extends StatelessWidget {
     required this.caption,
   });
 
+  void navigateToProductPage(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => ProductPage(imageUrl: imageUrl, caption: caption),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Image.network(imageUrl),
-        SizedBox(height: 8.0),
-        Text(
-          caption,
-          style: TextStyle(
-            fontSize: 16.0,
-            fontWeight: FontWeight.bold,
+    return GestureDetector(
+      onTap: () => navigateToProductPage(context),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Image.network(imageUrl),
+          SizedBox(height: 8.0),
+          Text(
+            caption,
+            style: TextStyle(
+              fontSize: 16.0,
+              fontWeight: FontWeight.bold,
+            ),
           ),
-        ),
-        SizedBox(height: 16.0),
-      ],
+          SizedBox(height: 16.0),
+        ],
+      ),
     );
   }
 }
-
 // Importuj stronę logowania
 
 class CustomBottomNavigationBar extends StatelessWidget {
