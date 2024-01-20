@@ -1,6 +1,7 @@
-// add_clothing_page.dart
 import 'package:flutter/material.dart';
 import 'home_page.dart';
+import 'login_page.dart';
+import 'search_page.dart';
 
 class AddClothingPage extends StatefulWidget {
   @override
@@ -22,6 +23,17 @@ class _AddClothingPageState extends State<AddClothingPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Dodaj Ubranie'),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.add_a_photo),
+            onPressed: () async {
+              // Add logic to upload a photo
+              // You can use a package like image_picker to pick an image from the gallery
+              // Example: https://pub.dev/packages/image_picker
+              // Update the 'imagePath' variable with the path of the selected image
+            },
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -30,17 +42,6 @@ class _AddClothingPageState extends State<AddClothingPage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // Button to upload a photo
-              IconButton(
-                icon: Icon(Icons.add_a_photo),
-                onPressed: () async {
-                  // Add logic to upload a photo
-                  // You can use a package like image_picker to pick an image from the gallery
-                  // Example: https://pub.dev/packages/image_picker
-                  // Update the 'imagePath' variable with the path of the selected image
-                },
-              ),
-              SizedBox(height: 16.0),
               // Text form field for clothing name
               TextFormField(
                 onChanged: (value) {
@@ -76,7 +77,7 @@ class _AddClothingPageState extends State<AddClothingPage> {
               TextFormField(
                 onChanged: (value) {
                   setState(() {
-                    clothingPrice = double.parse(value);
+                    clothingPrice = double.tryParse(value) ?? 0.0;
                   });
                 },
                 decoration: InputDecoration(labelText: 'Cena'),
@@ -170,6 +171,60 @@ class _AddClothingPageState extends State<AddClothingPage> {
           ),
         ),
       ),
+      bottomNavigationBar: CustomBottomNavigationBar(),
+    );
+  }
+}
+
+class CustomBottomNavigationBar extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return BottomNavigationBar(
+      items: <BottomNavigationBarItem>[
+        BottomNavigationBarItem(
+          icon: Icon(Icons.home),
+          label: 'Strona Główna',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.favorite),
+          label: 'Ulubione',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.add),
+          label: 'Dodaj',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.mail),
+          label: 'Wiadomości',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.person),
+          label: 'Profil',
+        ),
+      ],
+      selectedItemColor: Colors.grey,
+      unselectedItemColor: Colors.grey,
+      onTap: (index) {
+        // Kod obsługujący przekierowanie na odpowiednią stronę
+        switch (index) {
+          case 0: // Strona Główna
+            Navigator.of(context).pushReplacement(
+              MaterialPageRoute(builder: (context) => HomePage()),
+            );
+            break;
+          case 2: // Strona dodawania
+            Navigator.of(context).pushReplacement(
+              MaterialPageRoute(builder: (context) => AddClothingPage()),
+            );
+            break;
+          case 4: // Profil
+            Navigator.of(context).pushReplacement(
+              MaterialPageRoute(builder: (context) => LoginPage()),
+            );
+            break;
+          // Dodaj obsługę pozostałych ikon, jeśli to konieczne
+        }
+      },
     );
   }
 }
