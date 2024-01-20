@@ -27,13 +27,6 @@ class HomePage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  'Wyniki wyszukiwania',
-                  style: TextStyle(
-                    fontSize: 24.0,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
                 SizedBox(height: 16.0),
                 // Przykładowe zdjęcia
                 ImageCaptionWidget(
@@ -146,3 +139,4 @@ class CustomBottomNavigationBar extends StatelessWidget {
     );
   }
 }
+
