@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'login_page.dart';
+import 'search_page.dart';
+import 'add_clothing_page.dart';
+import 'cloth_page.dart';
+import 'home_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -117,6 +122,109 @@ class ProductPage extends StatelessWidget {
           // ... other details as needed
         ],
       ),
+      bottomNavigationBar: CustomBottomNavigationBar(),
+    );
+  }
+}
+
+class CustomBottomNavigationBar extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return BottomNavigationBar(
+      items: <BottomNavigationBarItem>[
+        BottomNavigationBarItem(
+          icon: Container(
+            decoration: BoxDecoration(
+              color: Colors.white, // Set the background color here
+              shape: BoxShape.circle, // Optional: You can set the shape
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0), // Optional: Adjust padding
+              child: Icon(Icons.home,
+                  color: Colors.grey), // Set the icon color here
+            ),
+          ),
+          label: 'Strona Główna',
+        ),
+        BottomNavigationBarItem(
+          icon: Container(
+            decoration: BoxDecoration(
+              color: Colors.white, // Set the background color here
+              shape: BoxShape.circle, // Optional: You can set the shape
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0), // Optional: Adjust padding
+              child: Icon(Icons.favorite,
+                  color: Colors.grey), // Set the icon color here
+            ),
+          ),
+          label: 'Ulubione',
+        ),
+        BottomNavigationBarItem(
+          icon: Container(
+            decoration: BoxDecoration(
+              color: Colors.white, // Set the background color here
+              shape: BoxShape.circle, // Optional: You can set the shape
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0), // Optional: Adjust padding
+              child: Icon(Icons.add,
+                  color: Colors.grey), // Set the icon color here
+            ),
+          ),
+          label: 'Dodaj',
+        ),
+        BottomNavigationBarItem(
+          icon: Container(
+            decoration: BoxDecoration(
+              color: Colors.white, // Set the background color here
+              shape: BoxShape.circle, // Optional: You can set the shape
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0), // Optional: Adjust padding
+              child: Icon(Icons.mail,
+                  color: Colors.grey), // Set the icon color here
+            ),
+          ),
+          label: 'Wiadomości',
+        ),
+        BottomNavigationBarItem(
+          icon: Container(
+            decoration: BoxDecoration(
+              color: Colors.white, // Set the background color here
+              shape: BoxShape.circle, // Optional: You can set the shape
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0), // Optional: Adjust padding
+              child: Icon(Icons.person,
+                  color: Colors.grey), // Set the icon color here
+            ),
+          ),
+          label: 'Profil',
+        ),
+      ],
+      selectedItemColor: Colors.blue,
+      unselectedItemColor: Colors.grey,
+      onTap: (index) {
+        // Dodaj kod obsługujący przekierowanie na stronę logowania
+        if (index == 4) {
+          Navigator.of(context).pushReplacement(
+            MaterialPageRoute(builder: (context) => LoginPage()),
+          );
+        }
+        if (index == 3) {}
+        if (index == 2) {
+          Navigator.of(context).pushReplacement(
+            MaterialPageRoute(builder: (context) => AddClothingPage()),
+          );
+        }
+        if (index == 1) {}
+        if (index == 0) {
+          Navigator.of(context).pushReplacement(
+            MaterialPageRoute(builder: (context) => HomePage()),
+          );
+        }
+      },
     );
   }
 }
