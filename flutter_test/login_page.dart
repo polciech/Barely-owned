@@ -86,18 +86,30 @@ class _LoginPageState extends State<LoginPage> {
                   );
                 }
               },
-              child: Text('Login'),
+              child: SizedBox(
+                width: 200.0,
+                height: 40.0, // Set a fixed width for both buttons
+                child: Center(child: Text('Login')),
+              ),
             ),
-            ElevatedButton(
-              onPressed: () {
-                // Nawiązanie do pliku z rejestracją (signup_page.dart)
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => SignupPage()),
-                );
-              },
-              child: Text('Zarejestruj się'),
-            ),
+            Text(''),
+            OutlinedButton(
+                onPressed: () {
+                  // Nawiązanie do pliku z rejestracją (signup_page.dart)
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SignupPage()),
+                  );
+                },
+                style: OutlinedButton.styleFrom(
+                  side: BorderSide(color: Colors.blue), // Set outline color
+                  textStyle: TextStyle(color: Colors.blue), // Set text color
+                ),
+                child: SizedBox(
+                  width: 200.0,
+                  height: 40.0, // Set a fixed width for both buttons
+                  child: Center(child: Text('Zarejestruj się')),
+                )),
           ],
         ),
       ),
