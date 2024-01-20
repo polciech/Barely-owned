@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:helloworld/add_clothing_page.dart';
 import 'login_page.dart';
 import 'home_page.dart';
 import 'package:flutter/material.dart';
 import 'login_page.dart';
 import 'home_page.dart';
+import 'add_clothing_page.dart';
 
 class SearchPage extends StatefulWidget {
   @override
@@ -130,6 +132,11 @@ class CustomBottomNavigationBar extends StatelessWidget {
           case 0: // Strona Główna
             Navigator.of(context).pushReplacement(
               MaterialPageRoute(builder: (context) => HomePage()),
+            );
+            break;
+          case 2: // Strona dodawania
+            Navigator.of(context).pushReplacement(
+              MaterialPageRoute(builder: (context) => AddClothingPage()),
             );
             break;
           case 4: // Profil
