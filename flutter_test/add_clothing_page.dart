@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:idkcdss/conversations.dart';
 import 'home_page.dart';
 import 'login_page.dart';
 import 'search_page.dart';
 import 'chat.dart';
+import 'conversations.dart';
 
 class AddClothingPage extends StatefulWidget {
   @override
@@ -255,6 +257,8 @@ class CustomBottomNavigationBar extends StatelessWidget {
       ],
       selectedItemColor: Colors.grey,
       unselectedItemColor: Colors.grey,
+      showUnselectedLabels: false,
+      showSelectedLabels: false,
       onTap: (index) {
         // Kod obsługujący przekierowanie na odpowiednią stronę
         switch (index) {
@@ -270,7 +274,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
             break;
           case 3:
             Navigator.of(context).pushReplacement(
-              MaterialPageRoute(builder: (context) => MyChat()),
+              MaterialPageRoute(builder: (context) => ConversationsPage()),
             );
             break;
           case 4: // Profil
