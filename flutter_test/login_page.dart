@@ -1,5 +1,6 @@
 // login_page.dart
 import 'package:flutter/material.dart';
+import 'profil.dart';
 import 'home_page.dart';
 import 'signup_page.dart';
 import 'add_clothing_page.dart';
@@ -68,7 +69,7 @@ class _LoginPageState extends State<LoginPage> {
                 if (username == '' && password == '') {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => HomePage()),
+                    MaterialPageRoute(builder: (context) => UserProfilePage()),
                   );
                 } else {
                   showDialog(
