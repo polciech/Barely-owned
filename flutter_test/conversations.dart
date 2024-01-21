@@ -55,13 +55,13 @@ class CustomBottomNavigationBar extends StatelessWidget {
         BottomNavigationBarItem(
           icon: Container(
             decoration: BoxDecoration(
-              color: Colors.blue, // Set the background color here
+              color: Colors.white, // Set the background color here
               shape: BoxShape.circle, // Optional: You can set the shape
             ),
             child: Padding(
               padding: const EdgeInsets.all(8.0), // Optional: Adjust padding
               child: Icon(Icons.home,
-                  color: Colors.white), // Set the icon color here
+                  color: Colors.grey), // Set the icon color here
             ),
           ),
           label: 'Strona Główna',
@@ -97,13 +97,13 @@ class CustomBottomNavigationBar extends StatelessWidget {
         BottomNavigationBarItem(
           icon: Container(
             decoration: BoxDecoration(
-              color: Colors.white, // Set the background color here
+              color: Colors.blue, // Set the background color here
               shape: BoxShape.circle, // Optional: You can set the shape
             ),
             child: Padding(
               padding: const EdgeInsets.all(8.0), // Optional: Adjust padding
               child: Icon(Icons.mail,
-                  color: Colors.grey), // Set the icon color here
+                  color: Colors.white), // Set the icon color here
             ),
           ),
           label: 'Wiadomości',
