@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:idkcdss/conversations.dart';
 import 'home_page.dart';
 import 'login_page.dart';
 import 'add_clothing_page.dart';
@@ -113,10 +114,12 @@ class ChatMessage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('User', style: Theme.of(context).textTheme.headline6),
+                Text('User',
+                    style:
+                        TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
                 Container(
                   margin: const EdgeInsets.only(top: 5.0),
-                  child: Text(text),
+                  child: Text(text, style: TextStyle(fontSize: 15)),
                 ),
               ],
             ),
@@ -203,8 +206,10 @@ class CustomBottomNavigationBar extends StatelessWidget {
           label: 'Profil',
         ),
       ],
-      selectedItemColor: Colors.blue,
+      selectedItemColor: Colors.grey,
       unselectedItemColor: Colors.grey,
+      showUnselectedLabels: false,
+      showSelectedLabels: false,
       onTap: (index) {
         // Dodaj kod obsługujący przekierowanie na stronę logowania
         if (index == 4) {
@@ -214,7 +219,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
         }
         if (index == 3) {
           Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (context) => MyChat()),
+            MaterialPageRoute(builder: (context) => ConversationsPage()),
           );
         }
         if (index == 2) {
