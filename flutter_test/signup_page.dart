@@ -5,6 +5,7 @@ import 'home_page.dart';
 import 'login_page.dart';
 import 'add_clothing_page.dart';
 import 'chat.dart';
+import 'conversations.dart';
 
 class SignupPage extends StatefulWidget {
   @override
@@ -237,8 +238,10 @@ class CustomBottomNavigationBar extends StatelessWidget {
           label: 'Profil',
         ),
       ],
-      selectedItemColor: Colors.blue,
+      selectedItemColor: Colors.grey,
       unselectedItemColor: Colors.grey,
+      showUnselectedLabels: false,
+      showSelectedLabels: false,
       onTap: (index) {
         // Dodaj kod obsługujący przekierowanie na stronę logowania
         if (index == 4) {
@@ -248,7 +251,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
         }
         if (index == 3) {
           Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (context) => MyChat()),
+            MaterialPageRoute(builder: (context) => ConversationsPage()),
           );
         }
         if (index == 2) {
