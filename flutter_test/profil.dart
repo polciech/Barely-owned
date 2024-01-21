@@ -1,11 +1,13 @@
 // profile_page.dart
 import 'package:flutter/material.dart';
+import 'package:idkcdss/conversations.dart';
 import 'home_page.dart';
 import 'login_page.dart';
 import 'add_clothing_page.dart';
 import 'chat.dart';
 import 'cloth_page.dart';
 import 'search_page.dart';
+import 'conversations.dart';
 
 class UserProfilePage extends StatelessWidget {
   @override
@@ -71,19 +73,23 @@ class UserProfilePage extends StatelessWidget {
                       // Dodaj kod dla przycisku 'Regulamin'
                     },
                   ),
-                  SizedBox(height: 16.0),
+                  SizedBox(height: 8.0),
                   // Przycisk 'Wyloguj się'
-                  ElevatedButton(
-                    onPressed: () {
-                      // Dodaj kod dla przycisku 'Wyloguj się'
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => LoginPage()),
-                      );
-                    },
-                    style: ElevatedButton.styleFrom(primary: Colors.red),
-                    child: Text('Wyloguj się'),
-                  ),
+                  SizedBox(
+                    height: 40.0, // Set a fixed height for all buttons
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        // Dodaj kod dla przycisku 'Wyloguj się'
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => LoginPage()),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(primary: Colors.red),
+                      child: Text('Wyloguj się'),
+                    ),
+                  )
                 ],
               ),
             ),
@@ -107,10 +113,14 @@ class ProfileButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
-      child: ElevatedButton(
-        onPressed: onPressed,
-        child: Text(label),
+      padding: const EdgeInsets.symmetric(vertical: 4.0),
+      child: SizedBox(
+        height: 40.0, // Set a fixed height for all buttons
+        width: double.infinity, // Make the button take the full width
+        child: ElevatedButton(
+          onPressed: onPressed,
+          child: Text(label),
+        ),
       ),
     );
   }
@@ -194,6 +204,8 @@ class CustomBottomNavigationBar extends StatelessWidget {
       ],
       selectedItemColor: Colors.grey,
       unselectedItemColor: Colors.grey,
+      showUnselectedLabels: false,
+      showSelectedLabels: false,
       onTap: (index) {
         // Kod obsługujący przekierowanie na odpowiednią stronę
         switch (index) {
@@ -209,7 +221,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
             break;
           case 3:
             Navigator.of(context).pushReplacement(
-              MaterialPageRoute(builder: (context) => MyChat()),
+              MaterialPageRoute(builder: (context) => ConversationsPage()),
             );
             break;
           case 4: // Profil
