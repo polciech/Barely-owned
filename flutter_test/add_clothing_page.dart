@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'home_page.dart';
 import 'login_page.dart';
 import 'search_page.dart';
+import 'chat.dart';
 
 class AddClothingPage extends StatefulWidget {
   @override
@@ -267,6 +268,11 @@ class CustomBottomNavigationBar extends StatelessWidget {
               MaterialPageRoute(builder: (context) => AddClothingPage()),
             );
             break;
+          case 3:
+            Navigator.of(context).pushReplacement(
+              MaterialPageRoute(builder: (context) => MyChat()),
+            );
+            break;
           case 4: // Profil
             Navigator.of(context).pushReplacement(
               MaterialPageRoute(builder: (context) => LoginPage()),
@@ -278,3 +284,4 @@ class CustomBottomNavigationBar extends StatelessWidget {
     );
   }
 }
+

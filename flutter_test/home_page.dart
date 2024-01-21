@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:helloworld/chat.dart';
 import 'login_page.dart';
 import 'search_page.dart';
 import 'add_clothing_page.dart';
 import 'cloth_page.dart';
+import 'chat.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -237,7 +239,11 @@ class CustomBottomNavigationBar extends StatelessWidget {
             MaterialPageRoute(builder: (context) => LoginPage()),
           );
         }
-        if (index == 3) {}
+        if (index == 3) {
+          Navigator.of(context).pushReplacement(
+            MaterialPageRoute(builder: (context) => MyChat()),
+          );
+        }
         if (index == 2) {
           Navigator.of(context).pushReplacement(
             MaterialPageRoute(builder: (context) => AddClothingPage()),

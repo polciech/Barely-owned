@@ -1,129 +1,128 @@
 import 'package:flutter/material.dart';
-import 'login_page.dart';
-import 'search_page.dart';
-import 'add_clothing_page.dart';
-import 'cloth_page.dart';
 import 'home_page.dart';
-import 'chat.dart';
+import 'login_page.dart';
+import 'add_clothing_page.dart';
+
+import 'cloth_page.dart';
+import 'search_page.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(MyChat());
 }
 
-class MyApp extends StatelessWidget {
+class MyChat extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: ClothPage(),
+      title: 'Czat',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: ChatScreen(),
     );
   }
 }
 
-class ClothPage extends StatelessWidget {
+class ChatScreen extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Cloth Page'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            // Use the ImageCaptionWidget with required parameters
-            ImageCaptionWidget(
-              imageUrl: 'https://example.com/image.jpg',
-              caption: 'Sample Caption',
-            ),
-          ],
-        ),
-      ),
-    );
-  }
+  State createState() => ChatScreenState();
 }
 
-class ImageCaptionWidget extends StatelessWidget {
-  final String imageUrl;
-  final String caption;
+class ChatScreenState extends State<ChatScreen> {
+  final TextEditingController _messageController = TextEditingController();
+  final List<ChatMessage> _messages = [];
 
-  const ImageCaptionWidget({
-    required this.imageUrl,
-    required this.caption,
-  });
-
-  void navigateToProductPage(BuildContext context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => ProductPage(imageUrl: imageUrl, caption: caption),
-      ),
+  void _handleSubmitted(String text) {
+    _messageController.clear();
+    ChatMessage message = ChatMessage(
+      text: text,
+      // W tym miejscu można dodać obsługę wysyłania wiadomości do serwera lub innego użytkownika.
     );
+    setState(() {
+      _messages.insert(0, message);
+    });
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () => navigateToProductPage(context),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+  Widget _buildTextComposer() {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 8.0),
+      child: Row(
         children: [
-          Image.network(imageUrl),
-          SizedBox(height: 8.0),
-          Text(
-            caption,
-            style: TextStyle(
-              fontSize: 16.0,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          SizedBox(height: 16.0),
-        ],
-      ),
-    );
-  }
-}
-
-class ProductPage extends StatelessWidget {
-  final String imageUrl;
-  final String caption;
-
-  ProductPage({
-    required this.imageUrl,
-    required this.caption,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Product Page'),
-      ),
-      body: ListView(
-        padding: EdgeInsets.all(16.0),
-        children: [
-          Center(
-            child: Container(
-              height: 200.0,
-              width: 200.0,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: NetworkImage(imageUrl),
-                  fit: BoxFit.cover,
-                ),
-                borderRadius: BorderRadius.circular(10.0),
+          Expanded(
+            child: TextField(
+              controller: _messageController,
+              onSubmitted: _handleSubmitted,
+              decoration: InputDecoration.collapsed(
+                hintText: 'Napisz wiadomość...',
               ),
             ),
           ),
-          SizedBox(height: 16.0),
-          Text(
-            caption,
-            style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
-            textAlign: TextAlign.center,
+          IconButton(
+            icon: Icon(Icons.send),
+            onPressed: () => _handleSubmitted(_messageController.text),
           ),
-          // ... other details as needed
         ],
       ),
-      bottomNavigationBar: CustomBottomNavigationBar(),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Czat z Użytkownikami'),
+      ),
+      body: Column(
+        children: [
+          Flexible(
+            child: ListView.builder(
+              reverse: true,
+              padding: const EdgeInsets.all(8.0),
+              itemBuilder: (_, int index) => _messages[index],
+              itemCount: _messages.length,
+            ),
+          ),
+          Divider(height: 1.0),
+          _buildTextComposer(),
+        ],
+      ),
+      bottomNavigationBar: CustomBottomNavigationBar(), // Dodaj to
+    );
+  }
+}
+
+class ChatMessage extends StatelessWidget {
+  final String text;
+
+  ChatMessage({required this.text});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: 10.0),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            margin: const EdgeInsets.only(right: 16.0),
+            child: CircleAvatar(
+              child: Text('User'),
+            ),
+          ),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('User', style: Theme.of(context).textTheme.headline6),
+                Container(
+                  margin: const EdgeInsets.only(top: 5.0),
+                  child: Text(text),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
@@ -178,13 +177,13 @@ class CustomBottomNavigationBar extends StatelessWidget {
         BottomNavigationBarItem(
           icon: Container(
             decoration: BoxDecoration(
-              color: Colors.white, // Set the background color here
+              color: Colors.blue, // Set the background color here
               shape: BoxShape.circle, // Optional: You can set the shape
             ),
             child: Padding(
               padding: const EdgeInsets.all(8.0), // Optional: Adjust padding
               child: Icon(Icons.mail,
-                  color: Colors.grey), // Set the icon color here
+                  color: Colors.white), // Set the icon color here
             ),
           ),
           label: 'Wiadomości',
@@ -233,4 +232,3 @@ class CustomBottomNavigationBar extends StatelessWidget {
     );
   }
 }
-

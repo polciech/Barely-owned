@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'home_page.dart';
 import 'signup_page.dart';
 import 'add_clothing_page.dart';
+import 'chat.dart';
 
 void main() {
   runApp(LoginPage());
@@ -204,7 +205,11 @@ class CustomBottomNavigationBar extends StatelessWidget {
             MaterialPageRoute(builder: (context) => LoginPage()),
           );
         }
-        if (index == 3) {}
+        if (index == 3) {
+          Navigator.of(context).pushReplacement(
+            MaterialPageRoute(builder: (context) => MyChat()),
+          );
+        }
         if (index == 2) {
           Navigator.of(context).pushReplacement(
             MaterialPageRoute(builder: (context) => AddClothingPage()),
