@@ -24,17 +24,6 @@ class _AddClothingPageState extends State<AddClothingPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Dodaj Ubranie'),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.add_a_photo),
-            onPressed: () async {
-              // Add logic to upload a photo
-              // You can use a package like image_picker to pick an image from the gallery
-              // Example: https://pub.dev/packages/image_picker
-              // Update the 'imagePath' variable with the path of the selected image
-            },
-          ),
-        ],
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -43,6 +32,17 @@ class _AddClothingPageState extends State<AddClothingPage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              // Button to upload a photo
+              IconButton(
+                icon: Icon(Icons.add_a_photo),
+                onPressed: () async {
+                  // Add logic to upload a photo
+                  // You can use a package like image_picker to pick an image from the gallery
+                  // Example: https://pub.dev/packages/image_picker
+                  // Update the 'imagePath' variable with the path of the selected image
+                },
+              ),
+              SizedBox(height: 16.0),
               // Text form field for clothing name
               TextFormField(
                 onChanged: (value) {
@@ -284,4 +284,3 @@ class CustomBottomNavigationBar extends StatelessWidget {
     );
   }
 }
-
